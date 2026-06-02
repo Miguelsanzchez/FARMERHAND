@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+  <html lang="es">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Panel Admin - FarmerHand</title>
+      <link rel="stylesheet" href="../css/styles.css">
+      <link rel="stylesheet" href="../css/admin.css">
+      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+      <link rel="stylesheet" href="../css/navbar.css">
+  </head>
+  <body>
+      <div id="fh-navbar"></div>
+
+    <main class="dashboard">                                                                                                                                  
+                                                                                                                                                          
+    <section class="metricas-grid">                                                                                                                         
+      <div class="metrica-card">                                                                                                                          
+        <span class="metrica-icono">👥</span>                                                                                                               
+        <p class="metrica-valor" id="m-usuarios">—</p>                                                                                                      
+        <p class="metrica-label">Usuarios</p> 
+      </div>                                                                                                                                                
+      <div class="metrica-card">                                                                                                                          
+        <span class="metrica-icono">🌿</span>                                                                                                               
+        <p class="metrica-valor" id="m-agricultores">—</p>                                                                                                  
+        <p class="metrica-label">Agricultores activos</p>                                                                                                   
+      </div>                                                                                                                                                
+      <div class="metrica-card">                                                                                                                          
+        <span class="metrica-icono">📦</span>                                                                                                               
+        <p class="metrica-valor" id="m-pedidos">—</p>
+        <p class="metrica-label">Pedidos</p>                                                                                                                
+      </div>                                                                                                                                              
+      <div class="metrica-card metrica-verde">                                                                                                              
+        <span class="metrica-icono">💶</span> 
+        <p class="metrica-valor" id="m-ingresos">—</p>                                                                                                      
+        <p class="metrica-label">Ingresos (pagados)</p>                                                                                                   
+      </div>                                                                                                                                                
+      <div class="metrica-card" id="card-solicitudes">
+        <span class="metrica-icono">⏳</span>                                                                                                               
+        <p class="metrica-valor" id="m-solicitudes">—</p>                                                                                                 
+        <p class="metrica-label">Solicitudes pendientes</p>                                                                                                 
+      </div>                                                                                                                                                
+    </section>
+                                                                                                                                                            
+    <section class="card" id="seccionSolicitudes">                                                                                                        
+      <h2>Solicitudes de altas pendientes</h2>                                                                                                              
+      <div id="tablaSolicitudes" class="tabla-contenedor"></div>                                                                                          
+    </section>                                                                                                                                              
+                                          
+    <section class="card" id="seccionUsuarios">                                                                                                             
+      <h2>Usuarios Registrados</h2>                                                                                                                         
+      <div id="tablaUsuarios" class="tabla-contenedor"></div>
+    </section>                                                                                                                                              
+                                                                                                                                                          
+  </main>                                                                                                                                                   
+                                                                                                                                                          
+  <style>                                                                                                                                                   
+  .metricas-grid {
+    display: grid;                                                                                                                                          
+    grid-template-columns: repeat(5, 1fr);                                                                                                                
+    gap: 16px;
+    margin-bottom: 28px;                      
+  }                                       
+  .metrica-card {
+    background: #fff;                                                                                                                                       
+    border-radius: 12px;
+    padding: 24px 16px;                                                                                                                                     
+    text-align: center;                                                                                                                                   
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    border-top: 4px solid #7cb342;                                                                                                                          
+  }                                       
+  .metrica-verde { border-top-color: #2d6a4f; }                                                                                                             
+  .metrica-icono { font-size: 28px; }                                                                                                                       
+  .metrica-valor { font-size: 34px; font-weight: 800; color: #1a1a1a; margin: 8px 0 4px; }
+  .metrica-label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: .5px; margin: 0; }                                              
+  @media (max-width: 900px) {                                                                                                                               
+    .metricas-grid { grid-template-columns: repeat(2, 1fr); }
+  }                                                                                                                                                         
+  </style>                                                   
+  <script type="module" src="../js/navbar.js"></script>
+  <script type="module" src="../js/panel-admin.js"></script>
+</body>
+</html>

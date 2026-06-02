@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hazte Agricultor - FarmerHand</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+
+    <main class="auth-container">
+        <div class="auth-card">
+            <a href="../index.html">
+                <img src="/assets/img/logofarmerhand.png" alt="FarmerHand" class="auth-logo" />
+            </a>
+
+            <h1>Hazte Agricultor</h1>
+            <p style="color:#666; margin-bottom:1.5rem; text-align:center;">
+                Vende tus productos directamente a consumidores. Rellena el formulario y revisaremos tu solicitud.
+            </p>
+
+            <div id="estadoSolicitud"></div>
+
+            <form id="formSolicitud">
+                <div class="input-group">
+                    <label for="nombre_finca">Nombre de la finca *</label>
+                    <input type="text" id="nombre_finca" placeholder="Ej: Huerta El Olivo" required />
+                </div>
+                <div class="input-group">
+                    <label for="localizacion">Localización *</label>
+                    <input type="text" id="localizacion" placeholder="Ej: Murcia, España" required />
+                </div>
+                <div class="input-group">
+                    <label for="descripcion">Descripción (opcional)</label>
+                    <textarea id="descripcion" rows="4"
+                        placeholder="Cuéntanos sobre tu finca, qué cultivas, cómo trabajas..."
+                        style="width:100%; padding:0.75rem; border:1px solid #ddd; border-radius:8px; font-family:inherit; font-size:0.95rem; resize:vertical;"></textarea>
+                </div>
+
+                <p id="errorSolicitud" class="error-msg" hidden></p>
+
+                <button type="submit" class="btn btn-primary" id="btnEnviar">
+                    Enviar solicitud
+                </button>
+            </form>
+
+            <p style="margin-top:1rem; text-align:center;">
+                <a href="../index.html">← Volver al catálogo</a>
+            </p>
+        </div>
+    </main>
+
+    <!-- JS externo -->
+    <script type="module" src="../js/solicitud-agricultor.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/carrito-desplegable.css" />
+    <link rel="stylesheet" href="../css/adopciones.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script type="module" src="../js/adopciones.js" defer></script>
+    <title>Adopta un árbol — FarmerHand</title>
+    <link rel="icon" href="/assets/img/logofarmerhand.png" type="image/x-icon" />
+  </head>
+  <body>
+
+    <!-- NAV -->
+    <header id="header">
+      <div class="nav-container">
+        <nav class="nav-menu">
+          <div class="nav-left">
+            <a href="/index.html" class="logo-link">
+              <img src="/assets/img/logofarmerhand.png" alt="FarmerHand" class="logo" />
+            </a>
+            <div class="nav-links" id="navLinks">
+              <a href="/pages/catalogo.html">TIENDA</a>
+              <a href="/pages/catalogo.html">EN TEMPORADA</a>
+              <a href="/pages/adopciones.html" class="nav-active">ADOPTA UN ÁRBOL</a>
+              <a href="/index.html#about">QUIÉNES SOMOS</a>
+              <a href="/index.html#contact">CONTACTO</a>
+              <a id="nav-hazte" href="/pages/login.html?returnTo=agricultor">HAZTE AGRICULTOR</a>
+            </div>
+          </div>
+          <div class="menu-icons">
+            <span class="material-symbols-outlined login-icon" id="nav-usuario" title="Mi cuenta">person</span>
+            <div id="nav-carrito" title="Ver carrito" style="position:relative;display:inline-flex;cursor:pointer;">
+              <span class="material-symbols-outlined cart">shopping_cart</span>
+              <span id="fh-cart-badge" style="position:absolute;top:-6px;right:-8px;background:#e53935;color:white;border-radius:50%;font-size:10px;width:16px;height:16px;display:none;align-items:center;justify-content:center;pointer-events:none;"></span>
+            </div>
+            <div class="burger" id="burger"><span></span><span></span><span></span></div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ① HERO -->
+      <section class="hero-adopt">
+        <div class="hero-text">
+          <h1>Adoptar</h1>
+          <p>Adopta un árbol, sigue el proceso de cultivo y recibe tu cosecha a domicilio.</p>
+          <div class="hero-search">
+            <span class="material-symbols-outlined">search</span>
+            <input type="text" id="buscador" placeholder="Busca producto, agricultor..." autocomplete="off" />
+          </div>
+          <p class="hero-helper">
+            <span class="material-symbols-outlined" style="font-size:16px;vertical-align:middle;">settings_suggest</span>
+            Encuentra la adopción perfecta para ti.
+            <a href="#adopciones-grid">Descubrir</a>
+          </p>
+        </div>
+        <div class="hero-ilus">
+          <div class="ilus-circle">
+            <img
+              src="/assets/img/adopta-un-arbol.jpeg"
+              alt="Adopta un árbol"
+              onerror="this.src='https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=400&h=400&fit=crop&crop=faces';this.onerror=null"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ② BANNER REGALO -->
+      <div class="regalo-bar">
+        <span>🎁</span>
+        <span>¿Quieres regalar una adopción?</span>
+      </div>
+
+      <!-- ③ CATEGORÍAS -->
+      <section class="cats-section">
+        <div class="categorias-list" id="categorias-list"></div>
+      </section>
+
+      <!-- ④ POR QUÉ ADOPTAR -->
+      <section class="porq-section">
+        <div class="porq-left">
+          <h2>¿Por qué adoptar?</h2>
+          <ul class="porq-list">
+            <li>Evitas el desperdicio de alimentos en origen gracias a la planificación de la cosecha y el cultivo bajo demanda</li>
+            <li>Contribuyes a la estabilidad económica del productor y a técnicas agrícolas sostenibles</li>
+            <li>Te aseguras la cosecha que quieras a un precio cerrado</li>
+            <li>Aseguras tus productos favoritos cada temporada</li>
+            <li>Recibes fotos y noticias directas desde el campo</li>
+            <li>Puedes visitar la finca donde se cultivan tus alimentos</li>
+          </ul>
+        </div>
+        <div class="porq-right">
+          <div class="video-thumb">
+            <img
+              src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=700&h=500&fit=crop"
+              alt="Agricultor en el campo"
+            />
+            <div class="play-btn">
+              <svg viewBox="0 0 68 48" width="68" height="48">
+                <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#f00"/>
+                <path d="M45 24 27 14v20" fill="#fff"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ⑤ GRID ADOPCIONES -->
+      <section class="adopt-section">
+        <div class="adopt-header">
+          <div>
+            <h2>Adopciones</h2>
+            <p id="contador" class="adopt-count">6 productos</p>
+          </div>
+          <div class="adopt-filtros">
+            <select class="sel-orden" aria-label="Ordenar">
+              <option>Relevancia</option>
+              <option>Precio: menor a mayor</option>
+              <option>Precio: mayor a menor</option>
+            </select>
+            <button class="btn-filtro" title="Filtros">
+              <span class="material-symbols-outlined">tune</span>
+            </button>
+          </div>
+        </div>
+        <div class="adopciones-grid" id="adopciones-grid"></div>
+        <p id="no-results" style="display:none;text-align:center;color:#aaa;padding:48px 0;">
+          No se encontraron resultados 🌿
+        </p>
+      </section>
+
+    </main>
+
+    <footer id="footer">
+      <p>&copy; 2025 FarmerHand - De la huerta a tus manos 🌱</p>
+      <p>Conectando agricultores con consumidores</p>
+    </footer>
+
+  </body>
+</html>

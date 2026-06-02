@@ -1,0 +1,27 @@
+.pago-container {
+  max-width: 480px;
+  margin: 60px auto;
+  padding: 32px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+}
+
+#payment-element {
+  margin-bottom: 24px;
+}
+
+#btn-pagar {
+  width: 100%;
+  padding: 14px;
+  background: #2d6a4f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#mensaje-error {
+  color: #e63946;
+  margin-top: 12px;
+}

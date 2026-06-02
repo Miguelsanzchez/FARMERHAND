@@ -1,0 +1,11 @@
+# Secrets
+.env
+**/.env
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# macOS
+.DS_Store
+**/.DS_Store

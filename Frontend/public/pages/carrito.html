@@ -1,0 +1,96 @@
+ <!DOCTYPE html>
+  <html lang="es">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Carrito - FarmerHand</title>
+      <link rel="stylesheet" href="../css/styles.css">
+      <link rel="stylesheet" href="../css/carrito.css">
+      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+      <script src="https://js.stripe.com/v3/"></script>
+  </head>
+  <body>
+      <header class="topbar">
+          <a href="../index.html" class="topbar-logo">
+              <img src="/assets/img/logofarmerhand.png" alt="FarmerHand" style="height:36px;" />
+          </a>
+          <h1 class="topbar-titulo">Tu Carrito</h1>
+          <div class="topbar-derecha">
+              <a href="../index.html" class="btn-volver">← Seguir comprando</a>
+          </div>
+      </header>
+
+      <main class="carrito-layout">
+          <section class="carrito-items card">
+              <h2>Productos</h2>
+              <div id="listaCarrito"></div>
+          </section>
+
+          <aside class="carrito-resumen card">
+              <h2>Resumen del pedido</h2>
+              <div id="resumenPedido"></div>
+
+              <!-- Botón tramitar: visible para todos cuando hay items en el carrito -->
+              <div id="seccionTramitar" style="display:none; margin-top:16px;">
+                  <button id="btnTramitar" class="btn btn-primary btn-checkout">
+                      Tramitar pedido →
+                  </button>
+              </div>
+
+              <div id="seccionCheckout" style="display:none;">
+
+                  <!-- Dirección estructurada -->
+                  <div style="margin-top:20px;">
+                      <h3 style="font-size:15px; margin-bottom:12px; color:#333;">Dirección de envío</h3>
+
+                      <div class="form-group">
+                          <label for="calle">Calle</label>
+                          <input type="text" id="calle" placeholder="Nombre de la calle" />
+                      </div>
+                      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                          <div class="form-group">
+                              <label for="numero">Número / Piso</label>
+                              <input type="text" id="numero" placeholder="Ej. 12, 3ºB" />
+                          </div>
+                          <div class="form-group">
+                              <label for="codigoPostal">Código postal</label>
+                              <input type="text" id="codigoPostal" placeholder="28001" maxlength="5" />
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="ciudad">Ciudad</label>
+                          <input type="text" id="ciudad" placeholder="Madrid" />
+                      </div>
+                      <div class="form-group">
+                          <label for="pais">País</label>
+                          <input type="text" id="pais" placeholder="España" value="España" />
+                      </div>
+                  </div>
+
+                  <!-- Pago con Stripe -->
+                  <div class="form-group" style="margin-top:20px;">
+                      <h3 style="font-size:15px; margin-bottom:12px; color:#333;">Datos de pago</h3>
+                      <div id="card-element" style="
+                          padding: 12px 10px;
+                          border: 1px solid #ccc;
+                          border-radius: 6px;
+                          background: #fff;
+                          font-size: 16px;
+                      "></div>
+                      <p id="card-errors" style="color:#e53935; font-size:13px; margin-top:6px; min-height:18px;"></p>
+                  </div>
+
+                  <button class="btn btn-primary btn-checkout" id="btnConfirmarPedido">
+                      Confirmar y pagar
+                  </button>
+              </div>
+
+              <p id="msgLogin" style="display:none; font-size:12px; color:#999; margin-top:10px; text-align:center;">
+                  ¿Ya tienes cuenta? <a id="linkLogin" href="login.html?returnTo=carrito" style="color:#7cb342;">Inicia sesión</a>
+              </p>
+          </aside>
+      </main>
+
+      <script type="module" src="../js/carrito.js"></script>
+  </body>
+  </html>

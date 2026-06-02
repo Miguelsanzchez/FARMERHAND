@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle de producto — FarmerHand</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/panel.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="topbar">
+    <h1 class="topbar-titulo">FarmerHand — Detalle de producto</h1>
+    <div class="topbar-derecha">
+      <a href="/pages/panel-agricultor.html" class="btn-logout">← Volver al panel</a>
+    </div>
+  </header>
+
+  <main class="dashboard">
+
+    <!-- Tarjeta info del producto -->
+    <section class="card" id="cardProducto">
+      <p class="empty-state">Cargando producto…</p>
+    </section>
+
+    <!-- Tarjeta pedidos del producto -->
+    <section class="card">
+      <div class="card-header">
+        <h2>Pedidos con este producto</h2>
+        <span id="detallePedidosContador" class="pedidos-contador"></span>
+      </div>
+      <div id="detallePedidos" class="tabla-contenedor">
+        <p class="empty-state">Cargando pedidos…</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="../js/producto-detalle.js"></script>
+</body>
+</html>

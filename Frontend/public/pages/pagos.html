@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagos — FarmerHand</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/pagos.css">
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+
+<body>
+  <div class="pago-container">
+    <h2>Finalizar pago</h2>
+    <div id="resumen">Cargando resumen...</div>
+
+    <form id="form-pago">
+      <div id="payment-element"></div>
+      <button id="btn-pagar" type="submit">Pagar ahora</button>
+      <div id="mensaje-error"></div>
+    </form>
+  </div>
+
+  <script src="../js/pagos.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+  <html lang="es">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Panel Agricultor - FarmerHand</title>
+      <link rel="stylesheet" href="../css/styles.css">
+      <link rel="stylesheet" href="../css/panel.css">
+      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+      <link rel="stylesheet" href="../css/navbar.css">
+  </head>
+  <body>
+
+      <div id="fh-navbar"></div>
+
+      <main class="dashboard">
+        
+          <section class="card">
+              <div class="card-header">
+                  <h2>Mis Productos</h2>
+                  <div style="display:flex;align-items:center;gap:10px;">
+                      <span id="productosContador" class="pedidos-contador"></span>
+                      <button class="btn btn-primary" id="btnNuevoProducto">+ Añadir producto</button>
+                  </div>
+              </div>
+
+              <div class="pedidos-filtros">
+                  <input type="text" id="productoBuscador" placeholder="Buscar por nombre…" />
+                  <select id="productoCategoria">
+                      <option value="">Todas las categorías</option>
+                      <option value="Verduras">Verduras</option>
+                      <option value="Frutas">Frutas</option>
+                      <option value="Lacteos">Lácteos</option>
+                      <option value="Aceites">Aceites</option>
+                      <option value="Otros">Otros</option>
+                  </select>
+                  <select id="productoDisponibilidad">
+                      <option value="">Todos</option>
+                      <option value="1">Disponible</option>
+                      <option value="0">Agotado</option>
+                  </select>
+                  <button class="btn btn-secondary btn-sm" id="btnLimpiarProductos">Limpiar</button>
+              </div>
+
+              <div id="tablaProductos" class="tabla-contenedor"></div>
+              <div id="paginacionProductos" class="paginacion"></div>
+          </section>
+
+          <section class="card" id="pedidos-recibidos">
+              <div class="card-header">
+                  <h2>Pedidos Recibidos</h2>
+                  <span id="pedidosContador" class="pedidos-contador"></span>
+              </div>
+
+              <div class="pedidos-filtros">
+                  <input type="text" id="filtroBuscador" placeholder="Buscar cliente, pedido…" />
+                  <input type="text" id="filtroProducto" placeholder="Filtrar por producto…" />
+                  <select id="filtroEstado">
+                      <option value="">Todos los estados</option>
+                      <option value="pendiente">Pendiente</option>
+                      <option value="pagado">Pagado</option>
+                      <option value="confirmado">Confirmado</option>
+                      <option value="enviado">Enviado</option>
+                      <option value="entregado">Entregado</option>
+                  </select>
+                  <input type="date" id="filtroDesde" title="Desde" />
+                  <input type="date" id="filtroHasta" title="Hasta" />
+                  <button class="btn btn-secondary btn-sm" id="btnLimpiarFiltros">Limpiar</button>
+              </div>
+
+              <div id="tablaPedidos" class="tabla-contenedor"></div>
+              <div id="paginacion" class="paginacion"></div>
+          </section>
+      </main>
+
+      <!-- Modal crear/editar producto -->
+      <div class="modal-overlay" id="modalProducto">
+          <div class="modal">
+              <h3 id="modalTitulo">Nuevo Producto</h3>
+              <form id="formProducto">
+                  <input type="hidden" id="productoId" />
+
+                  <div class="form-group">
+                      <label for="nombre">Nombre *</label>
+                      <input type="text" id="nombre" required />
+                  </div>
+
+                  <div class="form-group">
+                      <label for="descripcion">Descripción</label>
+                      <textarea id="descripcion" rows="3"></textarea>
+                  </div>
+
+                  <div class="form-group">
+                      <label for="precio_por_kg">Precio por kg (€) *</label>
+                      <input type="number" id="precio_por_kg" step="0.01" min="0" required />
+                  </div>                                               
+
+                  <div class="form-group">
+                      <label for="categoria">Categoría</label>
+                      <select id="categoria">
+                          <option value="">— Selecciona —</option>
+                          <option value="Verduras">Verduras</option>
+                          <option value="Frutas">Frutas</option>
+                          <option value="Lacteos">Lácteos</option>
+                          <option value="Aceites">Aceites</option>
+                          <option value="Otros">Otros</option>
+                      </select>
+                  </div>
+
+                  <div class="form-group">
+                      <label for="tiempo_envio">Tiempo de envío (días)</label>
+                      <input type="number" id="tiempo_envio" min="1" />
+                  </div>
+
+                  <!-- OPCIONES DE CAJA -->
+<div class="form-group cajas-section">
+  <label class="cajas-label">
+    Opciones de caja
+    <span class="cajas-sub">(opcional)</span>
+  </label>
+  <div class="cajas-header" id="cajasHeader" style="display:none;">                                                                                           
+    <span>Kg</span>                                                                                                                                           
+    <span>Precio total (€)</span>                                                                                                                             
+    <span>Dto (%)</span>                                                                                                                                    
+    <span></span>                                                                                                                                             
+  </div>           
+
+  <div id="cajasContainer" class="cajas-container"></div>
+
+  <button type="button" id="btnAddCaja" class="btn-add-caja">
+    + Añadir opción de caja
+  </button>
+</div>
+
+                  <div class="modal-actions">
+                      <button type="button" class="btn btn-secondary" id="btnCancelarModal">Cancelar</button>
+                      <button type="submit" class="btn btn-primary">Guardar</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+
+      <script type="module" src="../js/navbar.js"></script>
+      <script type="module" src="../js/panel-agricultor.js"></script>
+  </body>
+  </html>

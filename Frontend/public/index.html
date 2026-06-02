@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/carrito-desplegable.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script type="module" src="js/landing.js" defer></script>
+    <title>FarmerHand - Del campo a tu mesa, sin intermediarios</title>
+    <link rel="icon" href="/assets/img/logofarmerhand.png" type="image/x-icon" />
+    <meta
+      name="description"
+      content="FarmerHand - Compra directamente a agricultores, adopta un árbol o recibe tu caja semanal en casa."
+    />
+    <meta name="author" content="Miguel Sanz" />
+  </head>
+  <body class="landing-page">
+
+    <!-- HEADER -->
+    <header id="header">
+      <div class="nav-container">
+        <nav class="nav-menu">
+          <div class="nav-left">
+            <a href="index.html" class="logo-link">
+              <img src="/assets/img/logofarmerhand.png" alt="Logo FarmerHand" class="logo" />
+            </a>
+            <div class="nav-links" id="navLinks">
+              <a href="/pages/catalogo.html">TIENDA</a>
+              <a href="/pages/catalogo.html">EN TEMPORADA</a>
+              <a href="/pages/adopciones.html">ADOPTA UN ÁRBOL</a>
+              <a href="#about">¿COMO FUNCIONAMOS?</a>
+              <a href="#contact">CONTACTO</a>
+              <a id="nav-hazte" href="/pages/login.html?returnTo=agricultor">HAZTE AGRICULTOR</a>
+            </div>
+          </div>
+          <div class="menu-icons">
+            <span
+              class="material-symbols-outlined login-icon"
+              id="nav-usuario"
+              title="Mi cuenta"
+            >person</span>
+            <div
+              id="nav-carrito"
+              title="Ver carrito"
+              style="position:relative; display:inline-flex; cursor:pointer;"
+            >
+              <span class="material-symbols-outlined cart">shopping_cart</span>
+              <span
+                id="fh-cart-badge"
+                style="
+                  position:absolute; top:-6px; right:-8px;
+                  background:#e53935; color:white;
+                  border-radius:50%; font-size:10px;
+                  width:16px; height:16px;
+                  display:none;
+                  align-items:center; justify-content:center;
+                  pointer-events:none;
+                "
+              ></span>
+            </div>
+            <div class="burger" id="burger">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- HERO CON CARRUSEL -->
+      <section class="hero-landing">
+        <div class="carousel">
+          <div class="carousel-slide active" style="background-image: url('/assets/img/imghead.jpg')"></div>
+          <div class="carousel-slide" style="background-image: url('/assets/img/farmerhans.png')"></div>
+          <div class="carousel-slide" style="background-image: url('/assets/img/agricultor.png')"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1>Del campo a tu mesa,<br>sin intermediarios 🌱</h1>
+          <p>Compra directamente a agricultores, adopta un árbol<br>o recibe tu caja semanal en casa</p>
+          <div class="hero-btns">
+            <a href="/pages/catalogo.html" class="btn-hero-primary">Explorar productos</a>
+            <a href="/pages/adopciones.html" class="btn-hero-secondary">Adoptar un árbol</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CÓMO FUNCIONA -->
+      <section class="como-funciona" id="about">
+        <div class="section-container">
+          <h2>¿Cómo funciona? 🔄</h2>
+          <div class="pasos-grid">
+            <div class="paso">
+              <div class="paso-numero">1</div>
+              <h3>Agricultores publican su cosecha</h3>
+              <p>Agricultores verificados comparten sus productos frescos de temporada directamente en la plataforma</p>
+            </div>
+            <div class="paso">
+              <div class="paso-numero">2</div>
+              <h3>Tú eliges producto, caja o árbol</h3>
+              <p>Elige productos sueltos, suscríbete a una caja semanal o adopta un árbol y recibe su cosecha</p>
+            </div>
+            <div class="paso">
+              <div class="paso-numero">3</div>
+              <h3>Recibes en casa directamente</h3>
+              <p>El agricultor envía tu pedido directamente a tu puerta. Sin intermediarios, sin cadena de frío innecesaria</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SUSCRIPCIONES -->
+      <section class="landing-section landing-suscripciones">
+        <div class="section-split">
+          <div class="section-split-img">
+            <img src="/assets/img/caja-ecologica.jpeg" alt="Caja de fruta ecológica" />
+          </div>
+          <div class="section-split-text">
+            <h2>Recibe tu caja semanal 📦</h2>
+            <p>Elige tus productos y recíbelos cada semana o cada 15 días sin preocuparte de volver a comprar. Fruta, verdura y más de temporada, directa del campo.</p>
+            <a href="/pages/catalogo.html" class="btn-landing">Ver productos</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ADOPCIONES -->
+      <section class="landing-section landing-adopciones">
+        <div class="section-split reverse">
+          <div class="section-split-img">
+            <img src="/assets/img/adopta-un-arbol.jpeg" alt="Adopta un árbol" />
+          </div>
+          <div class="section-split-text">
+            <h2>Adopta un árbol 🌳</h2>
+            <p>Sigue su crecimiento, recibe su cosecha y apoya directamente al agricultor. Una relación que da frutos durante toda la temporada.</p>
+            <a href="/pages/adopciones.html" class="btn-landing">Ver adopciones</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCTOS DESTACADOS -->
+      <section class="landing-section productos-destacados">
+        <div class="section-container">
+          <h2>Productos destacados ⭐</h2>
+          <p class="section-subtitle">Lo mejor del campo directo a tus manos</p>
+          <div class="destacados-grid" id="destacados-grid"></div>
+          <div style="text-align:center; margin-top:40px;">
+            <a href="/pages/catalogo.html" class="btn-landing">Ver todos los productos →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONFIANZA -->
+      <section class="confianza-section">
+        <div class="section-container">
+          <h2>¿Por qué FarmerHand? ✅</h2>
+          <div class="ventajas-grid">
+            <div class="ventaja">
+              <span class="ventaja-icon">🧑‍🌾</span>
+              <h3>Agricultores verificados</h3>
+              <p>Cada agricultor pasa por un proceso de verificación antes de publicar</p>
+            </div>
+            <div class="ventaja">
+              <span class="ventaja-icon">🌿</span>
+              <h3>Productos de temporada</h3>
+              <p>Solo lo que está en su punto óptimo, cosechado cuando toca</p>
+            </div>
+            <div class="ventaja">
+              <span class="ventaja-icon">🚫</span>
+              <h3>Sin intermediarios</h3>
+              <p>El precio justo llega al agricultor, tú pagas lo que vale de verdad</p>
+            </div>
+            <div class="ventaja">
+              <span class="ventaja-icon">⭐</span>
+              <h3>Valoraciones reales</h3>
+              <p>Solo valoran los compradores reales. Transparencia total</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMUNIDAD -->
+      <section class="community-section" id="contact">
+        <div class="suscription-container">
+          <h2>Únete a la Comunidad</h2>
+          <p>Recibe noticias de nuestros agricultores y de los productos que crecen en sus campos</p>
+          <form class="subs-form" id="comunidad-form">
+            <div class="input-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" placeholder="Nombre" required />
+            </div>
+            <div class="input-group">
+              <label for="apellido">Apellido</label>
+              <input type="text" id="apellido" placeholder="Apellidos (Opcional)" />
+            </div>
+            <div class="input-group email">
+              <label for="email">Correo Electrónico</label>
+              <input type="email" id="email" placeholder="Correo Electrónico" required />
+            </div>
+            <div class="button-group">
+              <button type="submit" class="btn">Inscríbete</button>
+            </div>
+          </form>
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" required />
+              He leído y acepto las <a href="#" class="link">condiciones</a> y las
+              <a href="#" class="link">políticas de privacidad</a>.
+            </label>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+      <p>&copy; 2025 FarmerHand - De la huerta a tus manos 🌱</p>
+      <p>Conectando agricultores con consumidores</p>
+    </footer>
+
+  </body>
+</html>
