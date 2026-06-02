@@ -3,6 +3,24 @@ const supabase = require('../config/supabase')
 const verificarToken = require('../middleware/auth')
 const authorize      = require('../middleware/authorize')
 
+function validarFotoUrl(url){
+  if (!url) return true
+  try {
+    const parsed = new URL(url)
+    const dominiosPermitidos = [
+      'supabase.co',
+      'supabase.in',
+      'proyect-dom-farmerhand.vercel.app'
+ ]
+  return (
+    ['https:'].includes(parsed.protocol) && dominiosPermitidos.some(d => parsed.hostname.endsWith(d))
+  )
+} catch {
+  return false
+}
+  }
+
+
 const router = express.Router()
 
 // POST /api/productos
@@ -15,6 +33,10 @@ router.post('/', verificarToken, authorize('agricultor'), async (req, res) => {
 
   if (typeof nombre !== 'string' || nombre.trim().length > 100) {
     return res.status(400).json({ error: 'Nombre inválido (máximo 100 caracteres)' })
+  }
+
+  if (req.body.foto_url && !validarFotoUrl(req.body.foto_url)) {
+    return res.status(400).json({error: 'URL de imagen no permitida'})  
   }
 
   const precioNum = Number(precio_por_kg)
@@ -116,6 +138,9 @@ router.patch('/:id', verificarToken, authorize('agricultor'), async (req, res) =
 
   if (!producto) {
     return res.status(403).json({ error: 'No tienes permiso para editar este producto' })
+  }
+  if (req.body.foto_url && !validarFotoUrl(req.body.foto_url)) {
+    return res.status(400).json({ error: 'URL de imagen no permitida'})
   }
 
   // Filtrar solo los campos que el agricultor puede editar
