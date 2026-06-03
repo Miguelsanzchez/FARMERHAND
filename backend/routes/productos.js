@@ -3,14 +3,14 @@ const supabase = require('../config/supabase')
 const verificarToken = require('../middleware/auth')
 const authorize      = require('../middleware/authorize')
 
-function validarFotoUrl(url){
+function validarFotoUrl(url) {
   if (!url) return true
   try {
     const parsed = new URL(url)
     const dominiosPermitidos = [
       'supabase.co',
       'supabase.in',
-      'proyect-dom-farmerhand.vercel.app'
+      'farmerhand.vercel.app'
  ]
   return (
     ['https:'].includes(parsed.protocol) && dominiosPermitidos.some(d => parsed.hostname.endsWith(d))
@@ -18,7 +18,7 @@ function validarFotoUrl(url){
 } catch {
   return false
 }
-  }
+}
 
 
 const router = express.Router()
