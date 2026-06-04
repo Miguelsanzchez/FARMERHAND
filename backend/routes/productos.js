@@ -10,7 +10,7 @@ function validarFotoUrl(url) {
     const dominiosPermitidos = [
       'supabase.co',
       'supabase.in',
-      'farmerhand.vercel.app'
+      'farmerhand-web.vercel.app'
  ]
   return (
     ['https:'].includes(parsed.protocol) && dominiosPermitidos.some(d => parsed.hostname.endsWith(d))
