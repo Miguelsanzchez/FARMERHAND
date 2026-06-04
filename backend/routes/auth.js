@@ -77,7 +77,7 @@
             </div>
           `
 
-      }).catch(() => {})
+      }).catch(err => console.error('Email error:', err.message))
       
 
       
