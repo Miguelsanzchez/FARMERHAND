@@ -3,6 +3,7 @@
   const bcrypt   = require('bcrypt')
   const jwt      = require('jsonwebtoken')
   const supabase = require('../config/supabase')
+  const transporter = require('../config/email')
 
   // POST /api/auth/registro
   router.post('/registro', async (req, res) => {
@@ -56,6 +57,30 @@
       )
 
       const { password_hash: _, ...usuarioSeguro } = data
+
+      transporter.sendMail({
+        from:'"FarmerHand" <farmerhand.app@gmail.com>',
+        to: data.email,
+        subject: '¡Bienvenido a FarmerHand!',
+        html: `<div style="font-family:sans-serif;max-width:500px;margin:auto;">
+              <h2 style="color:#2d5016;">¡Hola, ${data.nombre}!</h2>
+              <p>Tu cuenta en <strong>FarmerHand</strong> ha sido creada correctamente.</p>
+              <p>Ya puedes explorar productos frescos directamente de agricultores locales.</p>
+              <a href="https://farmerhand.vercel.app" 
+                 style="display:inline-block;margin-top:16px;padding:12px 24px;
+                 background:#2d5016;color:#fff;border-radius:8px;text-decoration:none;">
+                Ir a FarmerHand
+              </a>
+              <p style="margin-top:32px;color:#999;font-size:12px;">
+                Si no creaste esta cuenta, ignora este mensaje.
+              </p>
+            </div>
+          `
+
+      }).catch(() => {})
+      
+
+      
       return res.status(201).json({ token, usuario: usuarioSeguro })
   })
 
