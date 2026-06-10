@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Email - FarmerHand</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+    <main class="auth-container">
+        <div class="auth-card" style="text-align:center;">
+            <a href="../index.html">
+                <img src="/assets/img/logofarmerhand.png" alt="FarmerHand" class="auth-logo" />
+            </a>
+            <div id="mensaje" style="margin-top: 24px; font-size: 15px; color: #555;">
+                Verificando tu cuenta...
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const API = 'https://proyect-dom-farmerhand.onrender.com'
+        const params = new URLSearchParams(window.location.search)
+        const token = params.get('token')
+        const el = document.getElementById('mensaje')
+
+        if (!token) {
+            el.innerHTML = '<p style="color:#c62828;">Enlace inválido.</p>'
+        } else {
+            fetch(`${API}/api/auth/verificar-email?token=${token}`)
+                .then(r => r.json())
+                .then(data => {
+                    if (data.mensaje) {
+                        el.innerHTML = `
+                            <p style="color:#2d5016; font-weight:600;">¡Cuenta verificada!</p>
+                            <p>${data.mensaje}</p>
+                            <a href="login.html" style="display:inline-block;margin-top:16px;padding:12px 28px;
+                               background:#2d5016;color:#fff;border-radius:8px;text-decoration:none;font-weight:600;">
+                               Iniciar sesión
+                            </a>`
+                    } else {
+                        el.innerHTML = `<p style="color:#c62828;">${data.error || 'Error al verificar.'}</p>`
+                    }
+                })
+                .catch(() => {
+                    el.innerHTML = '<p style="color:#c62828;">Error de conexión. Inténtalo de nuevo.</p>'
+                })
+        }
+    </script>
+</body>
+</html>
