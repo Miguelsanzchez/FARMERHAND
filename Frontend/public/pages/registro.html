@@ -59,6 +59,30 @@
           </div>
       </main>
 
+      <!-- Modal verificación -->
+      <div id="modalVerificacion" style="
+          display:none; position:fixed; inset:0;
+          background:rgba(0,0,0,0.5); z-index:1000;
+          align-items:center; justify-content:center;
+      ">
+          <div style="
+              background:#fff; border-radius:12px; padding:36px 28px;
+              max-width:380px; width:90%; text-align:center;
+          ">
+              <div style="font-size:48px;">📧</div>
+              <h2 style="color:#2d5016; margin:12px 0 8px;">¡Registro completado!</h2>
+              <p style="color:#555; font-size:15px; margin-bottom:24px;">
+                  Hemos enviado un enlace de activación a tu correo.<br>
+                  Revisa tu bandeja de entrada (y el spam) para activar tu cuenta.
+              </p>
+              <a href="login.html" style="
+                  display:inline-block; padding:12px 28px;
+                  background:#2d5016; color:#fff; border-radius:8px;
+                  text-decoration:none; font-weight:600;
+              ">Ir al login</a>
+          </div>
+      </div>
+
       <script type="module">
           import { registro, redirigirSegunRol, estaAutenticado, getUsuario } from '../js/auth.js'
 
@@ -111,8 +135,9 @@
               const errorEl = document.getElementById('errorRegistro')
 
               try {
-                  const usuario = await registro(nombre, email, password)
-                  redirigirConRetorno(usuario)
+                  await registro(nombre, email, password)
+                  const modal = document.getElementById('modalVerificacion')
+                  modal.style.display = 'flex'
               } catch (err) {
                   errorEl.textContent = err.message
                   errorEl.hidden = false
