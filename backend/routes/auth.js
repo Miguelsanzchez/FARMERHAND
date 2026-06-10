@@ -3,7 +3,7 @@
   const bcrypt   = require('bcrypt')
   const jwt      = require('jsonwebtoken')
   const supabase = require('../config/supabase')
-  const resend = require('../config/email')
+  const transporter = require('../config/email')
   const crypto = require('crypto')
 
   // POST /api/auth/registro
@@ -61,7 +61,7 @@
      
 
      try {
-        await resend.emails.send({
+        await transporter.sendMail({
             from:  '"FarmerHand" <onboarding@resend.dev>',
             to: data.email,
             subject: 'Verifica tu cuenta en FarmerHand',
