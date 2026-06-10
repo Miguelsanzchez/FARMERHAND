@@ -62,7 +62,7 @@
 
      try {
         await transporter.sendMail({
-            from:  '"FarmerHand" <onboarding@resend.dev>',
+            from:  '"FarmerHand" <farmerhand.app@gmail.com>',
             to: data.email,
             subject: 'Verifica tu cuenta en FarmerHand',
             html: `
