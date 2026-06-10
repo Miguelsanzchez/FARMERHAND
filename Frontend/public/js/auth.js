@@ -20,10 +20,7 @@ import { apiFetch } from './api.js'
             body: JSON.stringify({ nombre, email, password })
         })
 
-        localStorage.setItem('token', data.token)
-        localStorage.setItem('usuario', JSON.stringify(data.usuario))
-
-            return data.usuario
+            return data
     }
 
      export function logout() {
@@ -35,7 +32,7 @@ import { apiFetch } from './api.js'
 
      export function getUsuario() {
         const raw = localStorage.getItem('usuario')
-        return raw ? JSON.parse (raw) : null
+        return raw && raw !== 'undefined' ? JSON.parse(raw) : null
      }
     
      export function estaAutenticado() {
